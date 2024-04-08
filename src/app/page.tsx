@@ -43,6 +43,9 @@ export default function Home() {
                         </Button>
                     ))}
       </div>
+      <div className="my-16">
+        <Button size="lg">Total Tuples</Button>
+      </div>
     </main>
   );
 }
