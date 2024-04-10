@@ -1,14 +1,15 @@
-const oracledb = require('oracledb');
+const oracleDB = require('oracledb');
 
 export async function queryDB(query: string) {
     try {
-        const connection = await oracledb.getConnection({
-            user: 'temp',
-            password: 'temp',
-            connectString: 'temp'
+        const connection = await oracleDB.getConnection({
+            user: process.env.DATABASE_USERNAME,
+            password: process.env.DATABASE_PASSWORD,
+            connectString: process.env.DATABASE_URL
         });
 
         const result = await connection.execute(query);
+        await connection.close();
         return result.rows;
     } catch (error) {
         console.log(error);
