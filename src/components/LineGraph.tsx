@@ -1,10 +1,10 @@
 'use client'
-import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis, CartesianGrid } from 'recharts'
+import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis, CartesianGrid, Legend } from 'recharts'
 
 type Props = {trendData:any[]}
 const LineGraph: React.FC<Props> = ({trendData}) => {
   return (
-    <div className='w-[500px] h-[400px]'>
+    <div className='w-[800px] h-[400px]'>
         <ResponsiveContainer height="100%" width="100%">
             <LineChart width={800} height={500} data={trendData}>
                 <XAxis dataKey="year"/>
@@ -13,6 +13,9 @@ const LineGraph: React.FC<Props> = ({trendData}) => {
                 <Line type="monotone" dataKey="d1"/>
                 <Line  type="monotone" dataKey="d2"/>
                 <Line type="monotone" dataKey="d3"/>
+                <Line type="monotone" dataKey="d4"/>
+                <Line type="monotone" dataKey="d5"/>
+                <Line type="monotone" dataKey="d6"/>
             </LineChart>
         </ResponsiveContainer>
     </div>

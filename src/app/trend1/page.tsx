@@ -7,6 +7,20 @@ import { queryDB } from "../api/oracleFunctions"
 import TrendInterface from "@/components/trendInterface"
 
 async function page1() {
+  const response = await queryDB(`SELECT EXTRACT(YEAR FROM crimedate)AS year, COUNT(crimeid) AS "total crime" 
+  FROM sreasor.CrimeTable
+  GROUP BY EXTRACT(YEAR FROM crimedate)
+  ORDER BY EXTRACT(YEAR FROM crimedate)`);
+  const dataset = []
+  for(let i = 0; i < response.length; i++) {
+    let temp = {
+      year: response[i][0].toString(),
+      d1: response[i][1]
+    }
+    dataset[i] = temp;
+  }
+  console.log(dataset);
+
   return (
     <main className="min-h-screen min-w-screen">
       <HomeButton/>
@@ -18,39 +32,7 @@ async function page1() {
         "male",
         "female"
       ]}
-      data={
-        [
-          {
-            year: '2000',
-            d1: 0,
-            d2: 1
-          },
-          {
-            year: '2001',
-            d1: 4,
-            d2: 2
-          },
-          {
-            year: '2002',
-            d1: 5,
-            d2: 3
-          },
-          {
-            year: '2003',
-            d1: 4,
-            d2: 3
-          },
-          {
-            year: '2004',
-            d1: 6,
-            d2: 6
-          },
-          {
-            year: '2005',
-            d1: 8,
-            d2: 7
-          },]
-      }/>
+      data={dataset}/>
       <div className="fixed right-9">
         <Button asChild>
           <Link href="/trend2">

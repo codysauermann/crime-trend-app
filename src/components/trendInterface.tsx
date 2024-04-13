@@ -1,15 +1,18 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { Checkbox } from './ui/checkbox'
 import LineGraph from './LineGraph'
 
 type Props = {filters:string[], data:any[]}
 const TrendInterface: React.FC<Props> = ({filters, data}) => {
+
+  const [trendData, setTrendData] = useState(data);
+
   return (
     <div className="flex flex-col items-center space-y-4">
         <div className='flex p-9 border-4 border-black rounded-lg'>
           <LineGraph
-          trendData={data}/>
+          trendData={trendData}/>
         </div>
         <div className={filters.length >= 4 ? 'grid grid-cols-4 gap-8 p-9' : 'grid grid-cols-2 gap-8 p-9'}>
           {filters.map((filter, idx) => (
