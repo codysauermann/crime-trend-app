@@ -1,6 +1,6 @@
 const oracleDB = require('oracledb');
 
-export async function queryDB(query: string) {
+export async function queryDB(query: string | string[]) {
     try {
         const connection = await oracleDB.getConnection({
             user: process.env.DATABASE_USERNAME,

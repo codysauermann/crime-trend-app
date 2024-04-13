@@ -1,5 +1,8 @@
+'use client'
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { queryDB } from "./api/oracleFunctions";
+import axios from 'axios';
 
 const routes = [
   {
@@ -24,6 +27,20 @@ const routes = [
   },
 
 ]
+
+async function getTotalTuples() {
+  try {
+    const response = await fetch("/api");
+    if(response) {
+      const data = await response.json();
+      console.log(data);
+      alert("Total tuples: " + data);
+    }
+  } catch(e) {
+    console.log("error fetching tuple count: " + e);
+  }
+}
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
@@ -44,7 +61,7 @@ export default function Home() {
                     ))}
       </div>
       <div className="my-16">
-        <Button size="lg">Total Tuples</Button>
+        <Button size="lg" onClick={() => getTotalTuples()}>Total Tuples</Button>
       </div>
     </main>
   );
