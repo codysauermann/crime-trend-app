@@ -7,12 +7,12 @@ type Props = {filters:string[], data:any[]}
 const TrendInterface: React.FC<Props> = ({filters, data}) => {
   
   const [selectedFilters, setSelectedFilters] = useState({
-    violent: false,
-    property: false,
-    financial: false,
-    sexual: false
+    Violent: false,
+    Property: false,
+    Financial: false,
+    Sexual: false
   })
-  const [trendData, setTrendData] = useState(data);
+  const [trendData, setTrendData] = useState({});
   const [afterDate, setAfterDate] = useState('2010');
   const [beforeDate, setBeforeDate] = useState('2019');
 
@@ -36,21 +36,21 @@ const TrendInterface: React.FC<Props> = ({filters, data}) => {
                     let dataEntry = { year: data[i].year };
 
                     // Add data based on selected filters
-                    if (updatedFilters.violent) {
+                    if (updatedFilters.Violent) {
                         dataEntry = { ...dataEntry, d1: data[i].d1, d2: data[i].d2 };
                     }
-                    if (updatedFilters.property) {
+                    if (updatedFilters.Property) {
                         dataEntry = { ...dataEntry, d3: data[i].d3, d4: data[i].d4 };
                     }
-                    if (updatedFilters.financial) {
+                    if (updatedFilters.Financial) {
                         dataEntry = { ...dataEntry, d5: data[i].d5, d6: data[i].d6 };
                     }
-                    if (updatedFilters.sexual) {
+                    if (updatedFilters.Sexual) {
                         dataEntry = { ...dataEntry, d7: data[i].d7, d8: data[i].d8 };
                     }
 
                     // Add dataEntry to newData if any filter was selected
-                    if (updatedFilters.violent || updatedFilters.property || updatedFilters.financial || updatedFilters.sexual) {
+                    if (updatedFilters.Violent || updatedFilters.Property || updatedFilters.Financial || updatedFilters.Sexual) {
                         newData.push(dataEntry);
                     }
                 }
@@ -72,7 +72,26 @@ const TrendInterface: React.FC<Props> = ({filters, data}) => {
     
     for(let i = 0; i < data.length; i++) {
       if(parseInt(data[i].year) >= parseInt(e.target.value) && parseInt(data[i].year) <= parseInt(beforeDate)) {
-        newData.push(data[i]);
+        let dataEntry = { year: data[i].year };
+
+        // Add data based on selected filters
+        if (selectedFilters.Violent) {
+            dataEntry = { ...dataEntry, d1: data[i].d1, d2: data[i].d2 };
+        }
+        if (selectedFilters.Property) {
+            dataEntry = { ...dataEntry, d3: data[i].d3, d4: data[i].d4 };
+        }
+        if (selectedFilters.Financial) {
+            dataEntry = { ...dataEntry, d5: data[i].d5, d6: data[i].d6 };
+        }
+        if (selectedFilters.Sexual) {
+            dataEntry = { ...dataEntry, d7: data[i].d7, d8: data[i].d8 };
+        }
+
+        // Add dataEntry to newData if any filter was selected
+        if (selectedFilters.Violent || selectedFilters.Property || selectedFilters.Financial || selectedFilters.Sexual) {
+            newData.push(dataEntry);
+        }
       }
     }
     setTrendData(newData);
@@ -84,7 +103,26 @@ const TrendInterface: React.FC<Props> = ({filters, data}) => {
     
     for(let i = 0; i < data.length; i++) {
       if(parseInt(data[i].year) >= parseInt(afterDate) && parseInt(data[i].year) <= parseInt(e.target.value)) {
-        newData.push(data[i]);
+        let dataEntry = { year: data[i].year };
+
+        // Add data based on selected filters
+        if (selectedFilters.Violent) {
+            dataEntry = { ...dataEntry, d1: data[i].d1, d2: data[i].d2 };
+        }
+        if (selectedFilters.Property) {
+            dataEntry = { ...dataEntry, d3: data[i].d3, d4: data[i].d4 };
+        }
+        if (selectedFilters.Financial) {
+            dataEntry = { ...dataEntry, d5: data[i].d5, d6: data[i].d6 };
+        }
+        if (selectedFilters.Sexual) {
+            dataEntry = { ...dataEntry, d7: data[i].d7, d8: data[i].d8 };
+        }
+
+        // Add dataEntry to newData if any filter was selected
+        if (selectedFilters.Violent || selectedFilters.Property || selectedFilters.Financial || selectedFilters.Sexual) {
+            newData.push(dataEntry);
+        }
       }
     }
     setTrendData(newData);

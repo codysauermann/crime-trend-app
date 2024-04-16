@@ -125,10 +125,10 @@ ORDER BY violentQuery."crimeYear"
       </div>
       <TrendInterface
       filters={[
-        "violent",
-        "property",
-        "financial",
-        "sexual"
+        "Violent",
+        "Property",
+        "Financial",
+        "Sexual"
       ]}
       data={dataset}/>
       <div className="fixed right-9">
