@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import Link from "next/link"
 import { queryDB } from "../api/oracleFunctions"
-import TrendInterface from "@/components/trendInterface"
+import TrendInterface from "@/components/trend1Interface"
 
 async function page1() {
   const response = await queryDB(`SELECT violentQuery."crimeYear", ROUND(violentQuery."menVictimsViolent" / (violentQuery."menVictimsViolent" + violentQuery."womanVictimsViolent"), 2) * 100 AS "menVictimsViolentPercent", ROUND(violentQuery."womanVictimsViolent" / (violentQuery."menVictimsViolent" + violentQuery."womanVictimsViolent"), 2) * 100  AS "womenVictimsViolentPercent", ROUND(propertyQuery."menVictimsProperty" / (propertyQuery."womanVictimsProperty" + propertyQuery."menVictimsProperty"), 2) * 100 AS "menVictimsPropertyPercent", ROUND(propertyQuery."womanVictimsProperty" / (propertyQuery."womanVictimsProperty" + propertyQuery."menVictimsProperty"), 2) * 100 AS "womenVictimsPropertyPercent", ROUND(financialQuery."menVictimsFinancial" / (financialQuery."menVictimsFinancial" + financialQuery."womanVictimsFinancial"), 2) * 100 AS "menVictimsFinancialPercent", ROUND(financialQuery."womanVictimsFinancial" / (financialQuery."menVictimsFinancial" + financialQuery."womanVictimsFinancial"), 2) * 100 AS "womenVictimsFinancialPercent", ROUND(sexualQuery."menVictimsSexual" / (sexualQuery."menVictimsSexual" + sexualQuery."womanVictimsSexual"), 2) * 100 AS "menVictimsSexualPercent", ROUND(sexualQuery."womanVictimsSexual" / (sexualQuery."menVictimsSexual" + sexualQuery."womanVictimsSexual"), 2) * 100 AS "womenVictimsSexualPercent" FROM
@@ -105,7 +105,13 @@ ORDER BY violentQuery."crimeYear"
     let temp = {
       year: response[i][0].toString(),
       d1: response[i][1],
-      d2: response[i][2]
+      d2: response[i][2],
+      d3: response[i][3],
+      d4: response[i][4],
+      d5: response[i][5],
+      d6: response[i][6],
+      d7: response[i][7],
+      d8: response[i][8]
     }
     dataset[i] = temp;
   }
@@ -119,8 +125,10 @@ ORDER BY violentQuery."crimeYear"
       </div>
       <TrendInterface
       filters={[
-        "male",
-        "female"
+        "violent",
+        "property",
+        "financial",
+        "sexual"
       ]}
       data={dataset}/>
       <div className="fixed right-9">

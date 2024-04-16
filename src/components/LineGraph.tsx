@@ -16,6 +16,8 @@ const LineGraph: React.FC<Props> = ({trendData}) => {
                 <Line type="monotone" dataKey="d4"/>
                 <Line type="monotone" dataKey="d5"/>
                 <Line type="monotone" dataKey="d6"/>
+                <Line type="monotone" dataKey="d7"/>
+                <Line type="monotone" dataKey="d8"/>
             </LineChart>
         </ResponsiveContainer>
     </div>
