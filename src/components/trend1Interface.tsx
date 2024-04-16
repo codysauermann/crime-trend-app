@@ -1,7 +1,7 @@
 'use client'
 import React, { use, useState } from 'react'
 import { Checkbox } from './ui/checkbox'
-import LineGraph from './LineGraph'
+import LineGraph from './LineGraphTrend1'
 
 type Props = {filters:string[], data:any[]}
 const TrendInterface: React.FC<Props> = ({filters, data}) => {
