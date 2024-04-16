@@ -30,7 +30,7 @@ const routes = [
 
 async function getTotalTuples() {
   try {
-    const response = await fetch("/api");
+    const response = await fetch("/api/totalTuples");
     if(response) {
       const data = await response.json();
       console.log(data);

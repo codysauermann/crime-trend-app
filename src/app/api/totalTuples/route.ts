@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { queryDB } from './oracleFunctions';
+import { queryDB } from '../oracleFunctions';
 import { NextResponse } from 'next/server';
 
 async function handler() {
