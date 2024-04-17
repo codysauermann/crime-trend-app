@@ -29,7 +29,7 @@ async function page4() {
     <main className="min-h-screen min-w-screen">
       <HomeButton/>
       <div className="p-9">
-        <h1 className="text-lg md:text-xl lg:text-3xl font-semibold text-center">Difference between arrest made in cases vs cases still under investigation each year</h1>
+        <h1 className="text-lg md:text-xl lg:text-3xl font-semibold text-center">Percent of crimes ending in an arrest for each crime category</h1>
       </div>
       <Trend4Interface
       data={[

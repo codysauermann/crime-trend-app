@@ -1,57 +1,50 @@
 import HomeButton from '@/components/homebutton'
-import LineGraph from '@/components/LineGraph'
-import TrendInterface from '@/components/trendInterface'
+import Trend5Interface from '@/components/trend5Interface'
 import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
 import Link from 'next/link'
 import React from 'react'
+import { queryDB } from '../api/oracleFunctions'
 
-function page5() {
+async function page5() {
+
+  const response = await queryDB('');
+
+  const dataset = []
+  for(let i = 0; i < response.length; i++) {
+    let temp = {
+      year: response[i][0].toString(),
+      a: response[i][1],
+      b: response[i][2],
+      c: response[i][3],
+      d: response[i][4],
+      f: response[i][5],
+      g: response[i][6],
+      h: response[i][7],
+      i: response[i][8],
+      j: response[i][9],
+      k: response[i][10],
+      l: response[i][11],
+      o: response[i][12],
+      p: response[i][13],
+      s: response[i][14],
+      u: response[i][15],
+      v: response[i][16],
+      w: response[i][17],
+      x: response[i][18],
+      z: response[i][19],
+    }
+    dataset[i] = temp;
+  }
+  console.log(dataset);
+
   return (
     <main className="min-h-screen min-w-screen">
       <HomeButton/>
       <div className="p-9">
-        <h1 className="text-lg md:text-xl lg:text-3xl font-semibold text-center">Breakdown of crime status by crime type</h1>
+        <h1 className="text-lg md:text-xl lg:text-3xl font-semibold text-center">Percent of crimes ending in an arrest against each race</h1>
       </div>
-      <TrendInterface
-      filters={[
-        "Option 1",
-        "Option 2",
-        "Option 3",
-        "Option 4",
-        "Option 5"
-      ]}
-      data={[
-        {
-          year: '2000',
-          d1: 0,
-          d2: 1
-        },
-        {
-          year: '2001',
-          d1: 4,
-          d2: 2
-        },
-        {
-          year: '2002',
-          d1: 5,
-          d2: 3
-        },
-        {
-          year: '2003',
-          d1: 4,
-          d2: 3
-        },
-        {
-          year: '2004',
-          d1: 6,
-          d2: 6
-        },
-        {
-          year: '2005',
-          d1: 8,
-          d2: 7
-        },]}
+      <Trend5Interface
+      data={dataset}
       />
       <div className="fixed left-9">
         <Button asChild>
