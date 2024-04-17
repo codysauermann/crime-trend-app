@@ -1,25 +1,37 @@
 import HomeButton from '@/components/homebutton'
 import LineGraph from '@/components/LineGraph'
 import NavButtons from '@/components/navButtons'
+import Trend4Interface from '@/components/trend4Interface'
 import TrendInterface from '@/components/trendInterface'
 import { Checkbox } from '@/components/ui/checkbox'
 import React from 'react'
+import { queryDB } from '../api/oracleFunctions'
 
-function page4() {
+async function page4() {
+  
+  const response = await queryDB('');
+
+  const dataset = []
+  for(let i = 0; i < response.length; i++) {
+    let temp = {
+      year: response[i][0].toString(),
+      violentCrime: response[i][1],
+      propertyCrime: response[i][2],
+      financialCrime: response[i][3],
+      sexCrime: response[i][4],
+    }
+    dataset[i] = temp;
+  }
+  console.log(dataset);
+
+
   return (
     <main className="min-h-screen min-w-screen">
       <HomeButton/>
       <div className="p-9">
-        <h1 className="text-lg md:text-xl lg:text-3xl font-semibold text-center">Difference between arrest made in cases vs cases still under investigation each year</h1>
+        <h1 className="text-lg md:text-xl lg:text-3xl font-semibold text-center">Percent of crimes ending in an arrest for each crime category</h1>
       </div>
-      <TrendInterface
-      filters={[
-        "Option 1",
-        "Option 2",
-        "Option 3",
-        "Option 4",
-        "Option 5"
-      ]}
+      <Trend4Interface
       data={[
         {
           year: '2000',

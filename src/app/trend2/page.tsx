@@ -47,10 +47,10 @@ async function page2() {
       GROUP BY EXTRACT(YEAR FROM crimedate)
   )
   SELECT violentcrimes.year,
-  ROUND(violentcrimes.violent_crimes / totalcrime.total, 4) AS violent_percent,
-  ROUND(propertycrimes.property_crimes / totalcrime.total, 4) AS property_percent,
-  ROUND(financialcrimes.financial_crimes / totalcrime.total, 4) AS financial_percent,
-  ROUND(sexcrimes.sex_crimes / totalcrime.total, 4) AS sex_percent
+  ROUND(violentcrimes.violent_crimes / totalcrime.total, 4) * 100 AS violent_percent,
+  ROUND(propertycrimes.property_crimes / totalcrime.total, 4) * 100 AS property_percent,
+  ROUND(financialcrimes.financial_crimes / totalcrime.total, 4) * 100 AS financial_percent,
+  ROUND(sexcrimes.sex_crimes / totalcrime.total, 4) * 100 AS sex_percent
   FROM 
   violentcrimes 
   JOIN 
@@ -81,7 +81,7 @@ async function page2() {
     <main className="min-h-screen min-w-screen">
       <HomeButton/>
       <div className="p-9">
-        <h1 className="text-lg md:text-xl lg:text-3xl font-semibold text-center">Proportion of the type of crime over time</h1>
+        <h1 className="text-lg md:text-xl lg:text-3xl font-semibold text-center">Proportion of each crime category each year </h1>
       </div>
       <Trend2Interface
       data={dataset}
