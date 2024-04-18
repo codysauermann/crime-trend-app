@@ -66,10 +66,10 @@ const Trend4Interface: React.FC<Props> = ({data}) => {
                         <XAxis dataKey="year"/>
                         <YAxis/>
                         <CartesianGrid strokeDasharray="5 5" />
-                        {violentCrime ? <Line type="monotone" stroke='#991f17' dataKey="violentCrime"/>: ''}
-                        {propertyCrime ? <Line  type="monotone" stroke='#0047AB' dataKey="propertyCrime"/> : ''}
-                        {financialCrime ? <Line type="monotone" stroke='#000000' dataKey="financialCrime"/> : ''}
-                        {sexCrime ? <Line type="monotone" stroke='#FF5733' dataKey="sexCrime"/> : ''}
+                        {violentCrime ? <Line type="monotone" stroke="#FF5733" strokeDasharray="0" strokeWidth={3} dataKey="Violent Crime"/>: ''}
+                        {propertyCrime ? <Line  type="monotone" stroke="#3357FF" strokeDasharray="5 5" strokeWidth={3} dataKey="Property Crime"/> : ''}
+                        {financialCrime ? <Line type="monotone" stroke="#A1FF33" strokeDasharray="10 5" strokeWidth={3} dataKey="Financial Crime"/> : ''}
+                        {sexCrime ? <Line type="monotone" stroke="#FF8C33" strokeDasharray="2 2" strokeWidth={3} dataKey="Sex Crime"/> : ''}
                     </LineChart>
                 </ResponsiveContainer>
             </div>

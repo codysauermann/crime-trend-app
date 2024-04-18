@@ -84,25 +84,25 @@ const Trend5Interface: React.FC<Props> = ({data}) => {
         </div>
         <div className='grid grid-cols-1 gap-8 p-9'>
             <select defaultValue={raceSelection} onChange={(e) => handleRaceSelectionChange(e)} className='p-2'>
-                <option value="a">Other Asian</option>
-                <option value="b">Black</option>
-                <option value="c">Chinese</option>
-                <option value="d">Cambodian</option>
-                <option value="f">Filipino</option>
-                <option value="g">Guamanian</option>
-                <option value="h">Hispanic/Latin/Mexican</option>
-                <option value="i">American Indian/Alaskan Native</option>
-                <option value="j">Japanese</option>
-                <option value="k">Korean</option>
-                <option value="l">Laotian</option>
-                <option value="o">Other</option>
-                <option value="p">Pacific Islander</option>
-                <option value="s">Samoan</option>
-                <option value="u">Hawaiian</option>
-                <option value="v">Vietnamese</option>
-                <option value="w">White</option>
-                <option value="x">Unknown</option>
-                <option value="z">Asian Indian</option>
+                <option value="Other Asian">Other Asian</option>
+                <option value="Black">Black</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Cambodian">Cambodian</option>
+                <option value="Filipino">Filipino</option>
+                <option value="Guamanian">Guamanian</option>
+                <option value="Hispanic/Latin/Mexican">Hispanic/Latin/Mexican</option>
+                <option value="American Indian/Alaskan Native">American Indian/Alaskan Native</option>
+                <option value="Japanese">Japanese</option>
+                <option value="Korean">Korean</option>
+                <option value="Laotian">Laotian</option>
+                <option value="Other">Other</option>
+                <option value="Pacific Islander">Pacific Islander</option>
+                <option value="Samoan">Samoan</option>
+                <option value="Hawaiian">Hawaiian</option>
+                <option value="Vietnamese">Vietnamese</option>
+                <option value="White">White</option>
+                <option value="Unknown">Unknown</option>
+                <option value="Asian Indian">Asian Indian</option>
             </select>
         </div>
       </div>

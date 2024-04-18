@@ -68,10 +68,10 @@ async function page2() {
   for(let i = 0; i < response.length; i++) {
     let temp = {
       year: response[i][0].toString(),
-      violentCrime: response[i][1],
-      propertyCrime: response[i][2],
-      financialCrime: response[i][3],
-      sexCrime: response[i][4],
+      'Violent Crime': response[i][1],
+      'Property Crime': response[i][2],
+      'Financial Crime': response[i][3],
+      'Sex Crime': response[i][4],
     }
     dataset[i] = temp;
   }
