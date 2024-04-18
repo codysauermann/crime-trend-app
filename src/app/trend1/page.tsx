@@ -121,7 +121,7 @@ ORDER BY violentQuery."crimeYear"
     <main className="min-h-screen min-w-screen">
       <HomeButton/>
       <div className="p-9">
-        <h1 className="text-lg md:text-xl lg:text-3xl font-semibold text-center">Percentage of each gender to be a victim of each crime</h1>
+        <h1 className="text-lg md:text-xl lg:text-3xl font-semibold text-center">Gender breakdown of victims by crime type</h1>
       </div>
       <TrendInterface
       filters={[
